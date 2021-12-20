@@ -1,0 +1,284 @@
+<div id="bg">
+    <div id="head">
+        <div #head1 id="head1" class="rounded">
+            <span #contest style="color: #666;font-size: 22px;">TO THE PERUN CONTEST</span>
+            <span style="margin-left: 150px;" class="me-5">Days time left :32</span>
+            <span class="me-5">Days time passed:52</span>
+            <span class="me-5">Current points: 11</span>
+            <span>Running to</span>
+            <i (click)="gethead2()" style="margin-left: 20px;" class="fa fa-expand" aria-hidden="true"></i>
+        </div>
+        <div #head2 id="head2">
+            <p>
+                <span style="color: #666;font-size: 20px;">TO THE PERUN CONTEST </span>
+                <i class="fa fa-compress border border-white rounded-circle bg-white p-1" aria-hidden="true" (click)="gethead1()"></i>
+            </p>
+            <p><img class="rounded" style="width: 100%;" src="../../assets/photo_2021-11-22_18-59-59.jpg" alt=""></p>
+        </div>
+    </div>
+    <div>
+        <div id="Overview">
+            <div class="d-flex">
+                <span style="color: #666;font-size: 20px;">Overview Dashboard</span>
+
+
+                <form #formsearch="ngForm" class="d-flex flex-row" style="width: 40%;height: 40px;margin-left: 30px;">
+
+                    <ng-select style="margin-right: 20px;width: 130px;" name="time" [items]="Time" [(ngModel)]="selectedTime" bindLabel="name" bindValue="name" [clearable]="false" [searchable]="false">
+                        <ng-template ng-label-tmp let-item="item">
+                            <i style="margin-right: 5px;" class="fa fa-calendar" aria-hidden="true"></i>{{item.name}}
+                        </ng-template>
+                    </ng-select>
+                    <ng-select style="width: 130px;" name="domains" [items]="domains" [(ngModel)]="selecteddomain" bindLabel="name" bindValue="name" [clearable]="false" [searchable]="false">
+                        <ng-template ng-label-tmp let-item="item">
+                            {{item.name}}
+                        </ng-template>
+                    </ng-select>
+                </form>
+
+            </div>
+
+            <div routerLink="../campaign/design" class="btn btn-warning text-white fz" style="float: right;">CREATE NEW CAMPAIGN</div>
+
+        </div>
+        <p style="color: #666;" class="fz mt-3">Figures are base on {{time}}</p>
+    </div>
+    <div id="yoursale" class="rounded">
+        <p class="d-flex justify-content-between">
+            <span class="border-start border-4 border-warning p-0 ps-2" style="font-size: 20px;">Your sales performence</span>
+            <span routerLink="../detail" class="text-primary">
+               <span>Details</span>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+            </span>
+        </p>
+        <div class="row row-col-2">
+            <div class="col-6 border-right">
+                <p>Orders</p>
+                <h4>30</h4>
+
+            </div>
+            <div class="col-6">
+                <p>Items</p>
+                <h4>136</h4>
+            </div>
+            <div class="col-6">
+                <p>Items per order</p>
+                <h4>4.53</h4>
+            </div>
+            <div class="col-6">
+                <p>conversion rate</p>
+                <h4>1.17%</h4>
+            </div>
+            <div class="col-6">
+                <p>Profit</p>
+                <h4>$1,898.53</h4>
+            </div>
+            <div class="col-6">
+                <p>AOV</p>
+                <h4>$152.72</h4>
+            </div>
+
+        </div>
+    </div>
+    <div style="padding-left: 30px;" class="conversion bg-white mt-5 pt-3 ps-3 rounded">
+        <p style="font-size: 20px;color: #666;" class="border-start border-4 border-warning p-0 ps-2">Conversion funnel</p>
+        <img src="../../assets/photo_2021-11-22_20-14-32.jpg" alt="">
+    </div>
+    <div class="Yourcampaign mt-5 bg-white" style="padding:30px;">
+
+        <nav class="navbar navbar-expand-lg navbar-light rounded`">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item ">
+                            <a class="nav-link active border-start border-4 border-warning p-0 ps-2" style="font-size: 20px;color: #666;" aria-current="page"> Your best campaigns</a>
+                        </li>
+                        <li class="nav-item dropdown ms-4">
+                            <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                       Today
+                                     </a>
+                            <ul style="overflow-y: scroll;height: 220px;" class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <li><a class="dropdown-item" href="#">Today</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">All time</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last day</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last 7 days</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">This month</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last month</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last 3 months</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Customize Date</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown ms-4">
+                            <a class="nav-link dropdown-toggle p-0 " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      All Domains
+                                     </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <li><a class="dropdown-item" href="#">All Domains</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">30usd.com</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- <form class="d-flex" style="position: relative;">
+                        <input style="width: 100%;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="input-group-text" id="btnGroupAddon" style="position: absolute;top:0;right: 0;" class="btn btn-warning" type="submit">  <i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form> -->
+
+                    <form action="" class="input-group" style="width: 400px;margin-left: 30px;">
+                        <input type="text" class="form-control" placeholder="Search" aria-label="Input group example" aria-describedby="btnGroupAddon">
+                        <div class="input-group-text btn btn-warning" id="btnGroupAddon">
+                            <i style="color: white;" class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <p class="text-primary mt-3 border-bottom border-1 pb-3">
+            <span>Details</span>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </p>
+        <div class="text-danger d-flex justify-content-around">
+            <span>Campaigns</span>
+            <span>Views</span>
+            <span>Orders</span>
+            <span>Items</span>
+            <span>AOV</span>
+            <span>Average no. of Items/Order</span>
+            <span>Revenue</span>
+        </div>
+        <div class="border border-1 mt-3" style="height: 350px;">
+
+        </div>
+    </div>
+    <div class="topproduct mt-5 bg-white" style="padding:30px;">
+
+        <nav class="navbar navbar-expand-lg navbar-light rounded`">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item ">
+                            <a class="nav-link active border-start border-4 border-warning p-0 ps-2" style="color: #666;font-size: 20px;" aria-current="page">Top product</a>
+                        </li>
+                        <li class="nav-item dropdown ms-4">
+                            <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                       Today
+                                     </a>
+                            <ul style="overflow-y: scroll;height: 220px;" class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <li><a class="dropdown-item" href="#">Today</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">All time</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last day</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last 7 days</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">This month</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last month</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last 30 days</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Last 3 months</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Customize Date</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown ms-4">
+                            <a class="nav-link dropdown-toggle p-0 " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      All Domains
+                                     </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <li><a class="dropdown-item" href="#">All Domains</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">30usd.com</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- <form class="d-flex" style="position: relative;">
+                        <input style="width: 100%;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="input-group-text" id="btnGroupAddon" style="position: absolute;top:0;right: 0;" class="btn btn-warning" type="submit">  <i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form> -->
+
+                    <form action="" class="input-group" style="width: 400px;margin-left: 30px;">
+                        <input type="text" class="form-control" placeholder="Search" aria-label="Input group example" aria-describedby="btnGroupAddon">
+                        <div class="input-group-text btn btn-warning" id="btnGroupAddon">
+                            <i style="color: white;" class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <p class="text-primary mt-3 border-bottom border-1 pb-3">
+            <span>Details</span>
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </p>
+        <div class="text-danger d-flex justify-content-around">
+            <span>Product name</span>
+            <span>Product Categories</span>
+            <span>Quantity</span>
+            <span>Revenue</span>
+            <span>Discounts</span>
+            <span>Returns</span>
+            <span>Tax</span>
+            <span>Profit</span>
+        </div>
+        <div class="border border-1 mt-3" style="height: 350px;">
+
+        </div>
+    </div>
+
+</div>

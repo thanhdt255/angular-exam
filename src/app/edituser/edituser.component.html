@@ -1,0 +1,11 @@
+<div id="head">
+    <p style="font-weight: bold;font-size: 20px;padding-bottom: 15px;margin-bottom: 0;">Profile</p>
+    <div style="background-color: white;padding: 30px;">
+
+        <p id="p" class="border-bottom border-bottom border-2 p-2">
+            <a #changepassword1 (click)="changepasswordcolor()" class="me-2" href="" routerLink="changepassword">Change password</a>
+            <a id="changeinfo" routerLink="changeinfo" #changeinfocolor (click)="changecolorinfo()">Change affililate info</a>
+        </p>
+        <router-outlet></router-outlet>
+    </div>
+</div>

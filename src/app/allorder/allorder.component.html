@@ -1,0 +1,96 @@
+<div id="bg">
+    <p>
+        <span style="font-size: 28px;font-weight: 550;">Orders</span>
+        <span class="ms-5" style="color: #888;font-size: 14px;">Figures are based on</span>
+        <span class="ms-2" style="color: #888;font-size: 14px;">{{day}}</span>
+        <button style="float:right;" class="btn btn-primary">Export</button>
+    </p>
+    <div class="bg-white pt-4 mt-4 ">
+        <nav class="navbar navbar-expand-lg navbar-light rounded  d-flex justify-content-around">
+            <div>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-around">
+
+                        <li class="nav-item dropdown me-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>All Domains</option>
+                                <option value="1">30usd.com</option>
+                             
+                              </select>
+                        </li>
+                        <li class="nav-item dropdown me-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected> Today</option>
+                                <option value="1">All time</option>
+                                <option value="2">Last day</option>
+                                <option value="3">Last 7 days</option>
+                                <option value="4">This month</option>
+                                <option value="5">Last month</option>
+                                <option value="6">Last 30 days</option>
+                                <option value="7">Last 3 months</option>
+                                <option value="8">Customize Date</option>
+                              
+                              </select>
+                        </li>
+
+
+
+
+                        <li class="nav-item dropdown me-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Country</option>
+                                <option value="1">All Country</option>
+                                <option value="2">Afghanistan</option>
+                                <option value="3">Åland Islands</option>
+                                <option value="3">Albania</option>
+                                <option value="3">Algeria</option>
+                                <option value="3">American Samoa</option>
+                                <option value="3">Andorra</option>
+                                <option value="3">Angola</option>
+                              
+                              </select>
+
+                        </li>
+                        <li class="nav-item dropdown me-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Fullfillment Status</option>
+                                <option value="1">All fullfill</option>
+                                <option value="2">Unfullfilled</option>
+                                <option value="3">Fullfilled</option>
+                              </select>
+
+                        </li>
+
+
+                    </ul>
+
+                    <form action="" class="input-group" style="width: 300px;">
+                        <input type="text" class="form-control" placeholder="Search Url,tag,campaign" aria-label="Input group example" aria-describedby="btnGroupAddon">
+                        <div class="input-group-text btn btn-warning" id="btnGroupAddon">
+                            <i style="color: white;" class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="dropdown selected-column">
+                    <button class="btn text-warning bg-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Customize Columns
+                </button>
+                    <ul style="overflow-y: scroll;height: 170px;" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li class="dropdown-item" *ngFor="let col of allColumns">
+                            <input type="checkbox" [id]="col.name" (click)="toggle(col)" [checked]="isChecked(col)" />
+                            <label [attr.for]="col.name">{{ col.name }}</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div style="margin-top: 30px;">
+            <ngx-datatable style="padding:20px" class="material" [rows]="rows" [columnMode]="ColumnMode.force" [sortType]="SortType.multi" [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10">
+                <ngx-datatable-column *ngFor="let col of columns" [name]="col.name"> </ngx-datatable-column>
+            </ngx-datatable>
+        </div>
+
+
+    </div>

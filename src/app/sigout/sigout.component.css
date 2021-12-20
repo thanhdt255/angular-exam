@@ -1,0 +1,42 @@
+.signout {
+    width: 30%;
+    margin: auto;
+}
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pass {
+    position: relative;
+}
+
+.pass>i {
+    position: absolute;
+    top: 30%;
+    right: 5px
+}
+
+.divline {
+    color: gray;
+    margin: 16px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    height: 1px;
+    flex-grow: 2;
+    background-color: gainsboro;
+}
+
+#lable {
+    margin: auto;
+    flex-grow: 1;
+    text-align: center;
+}

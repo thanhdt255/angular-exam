@@ -1,0 +1,13 @@
+#bg {
+    font-size: 16px;
+    padding: 30px;
+    background-color: gainsboro;
+}
+
+#detail {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

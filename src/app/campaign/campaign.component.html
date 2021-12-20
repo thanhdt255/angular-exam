@@ -1,0 +1,164 @@
+<div id="bg">
+    <p class="d-flex justify-content-between">
+        <span style="font-size: 24px; font-weight: 500;">CAMPAIGNS</span>
+        <span routerLink="../campaign/design" class="btn btn-warning text-white fz">CREATE NEW CAMPAIGN</span>
+    </p>
+    <div class="bg-white pt-4 mt-4" style="padding: 30px;">
+        <div class="d-flex justify-content-between">
+
+
+
+
+            <!-- <ng-select style="width: 150px;margin-right: 20px;padding: 0;height: 40px;" name="Domains" [(ngModel)]="selectedCar" [clearable]="false" [searchable]="false">
+                <ng-option value="All domains">All domains</ng-option>
+
+                <ng-option value="30usd">30usd.com</ng-option>
+
+            </ng-select> -->
+            <form #formsearch="ngForm" class="input-group" style="width: 100%;height: 40px;">
+                <ng-select style="margin-right: 20px;width: 150px;" name="domains" [items]="domains" [(ngModel)]="selecteddomain" bindLabel="name" bindValue="name" [clearable]="false" [searchable]="false">
+                    <ng-template ng-label-tmp let-item="item">
+                        {{item.name}}
+                    </ng-template>
+                </ng-select>
+                <ng-select style="margin-right: 20px;width: 170px;" name="time" [items]="time" [(ngModel)]="selectedTime" bindLabel="name" bindValue="name" [clearable]="false" [searchable]="false">
+                    <ng-template ng-label-tmp let-item="item">
+                        {{item.name}}
+                    </ng-template>
+                </ng-select>
+
+
+                <ng-select style="margin-right: 20px;width: 150px;" name="active" [items]="actives" [(ngModel)]="selectedactive" bindLabel="name" bindValue="name" [clearable]="false" [searchable]="false" (change)="searchCampaign()">
+                    <ng-template ng-label-tmp let-item="item">
+                        {{item.name}}
+                    </ng-template>
+                </ng-select>
+
+                <!-- <li class="nav-item dropdown me-3">
+
+                            <select [(ngModel)]="Campaignselect.value" (change)="searchCampaign()" name="selectcampaign" class="form-select" aria-label="Default select example">
+                            <option selected >Status</option>
+                            <option  value="Active">Active</option>
+                            <option  value="Ended">Ended</option>
+                            <option value="Locked">Locked</option>
+                          </select>
+
+
+                        </li> -->
+
+                <!-- <input style="width: 300px;" [(ngModel)]="nameCampaignfind.name" name="search" type="text" class="form-control" (keyup)="searchCampaign()" aria-label="Input group example" aria-describedby="btnGroupAddon">
+                            <div class="input-group-text btn btn-warning" id="btnGroupAddon">
+                                <i style="color: white;" class="fa fa-search" aria-hidden="true"></i>
+                            </div> -->
+                <div style="width: 270px;height: 40px;" class="input-group">
+                    <input placeholder="Search Url, tag, campaign" [(ngModel)]="nameCampaignfind.name" name="search" type="text" (keyup)="searchCampaign()" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+
+                    <span class="input-group-text bg-warning"> <i style="color: white;" class="fa fa-search" aria-hidden="true"></i></span>
+                </div>
+
+
+            </form>
+
+            <div style="border: 1px solid #ef911b;
+                border-radius: 5px;" class="dropdown selected-column">
+                <button style="color: #ef911b !important; ;" class="btn text-warning bg-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Customize Columns
+                </button>
+                <ul style="overflow-y: scroll;height: 170px;" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li class="dropdown-item" *ngFor="let col of allColumns">
+                        <input type="checkbox" [id]="col.name" (click)="toggle(col)" [checked]="isChecked(col)" />
+                        <label [attr.for]="col.name">{{ col.name }}</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- <h3>
+            Column Toggling
+            <small>
+            <a
+              href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/columns/column-toggle.component.ts"
+              target="_blank"
+            >
+              Source
+            </a>
+                </small>
+        </h3> -->
+        <div style="margin-top: 30px;">
+            <ngx-datatable [messages]="{emptyMessage: 'No data'}" [scrollbarV]="true" style="padding:20px;height: 500px;" class="material" [rows]="rows" [sortType]="SortType.multi" [headerHeight]="50" [footerHeight]="100" [rowHeight]="100" [limit]="5" [virtualization]="true"
+                [selected]="selected" [selectionType]="SelectionType.checkbox" [selectAllRowsOnPage]="false" [displayCheck]="displayCheck" (activate)="onActivate($event)" (select)="onSelect($event)">
+
+                <!-- <ngx-datatable-column [width]="100" name="Campaigns" [sortable]="false" prop="title" [draggable]="false" [resizeable]="false">
+                    <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected" let-selectFn="selectFn">
+                        <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+                    </ng-template>
+                    <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+                        <input type="checkbox" [checked]="isSelected" (change)="onCheckboxChangeFn($event)" /> {{value}}
+                    </ng-template>
+                </ngx-datatable-column> -->
+
+                <ngx-datatable-column title="my Tooltip" [cellClass]="'cell-table'" *ngFor="let col of columns" [name]="col.name" [prop]="col.prop">
+                    <ng-template *ngIf="col.name=='Campaigns'" ngx-datatable-header-template>
+                        Name of QR Code
+                    </ng-template>
+                    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        <ng-container [ngSwitch]="col.prop">
+                            <ng-container *ngSwitchCase="'images'" class="d-flex flex-row">
+                                <img *ngFor="let i of value" src={{i}} alt="" style="height:60px;width:50px">
+
+                            </ng-container>
+
+                            <ng-container *ngSwitchCase="'create_date'">
+                                {{value|date}}
+                            </ng-container>
+
+                            <!-- <ng-container>
+                                <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected" let-selectFn="selectFn">
+                                    <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+                                </ng-template>
+                                <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+                                    <input type="checkbox" [checked]="isSelected" (change)="onCheckboxChangeFn($event)" />{{value}}
+                                </ng-template>
+                            </ng-container> -->
+                            <ng-container *ngSwitchCase="'state'">
+                                <div style="text-align: center;padding: 5px 8px;width: 121px;border-radius:18px;font-size: 14px;" [ngStyle]="{'background-color':value === 'Active' ? '#28a745' : '#a2774f','color':value==='Active'?'white':'black' }"> {{value}}</div>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'revenue'">
+                                {{value|currency}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'conv_rate'">
+                                {{value|percent}}
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                                {{value}}
+                            </ng-container>
+                        </ng-container>
+
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Actions">
+                    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        <button style="background-color: white; border:none">
+                            <i style="color: #007bff;font-size: 20px; border: 1px solid gainsboro;padding: 5px;border-radius: 4px;" class="fa fa-cog" aria-hidden="true"></i>
+                        </button>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+        </div>
+
+
+        <!-- <div class="selected-column">
+            <h4>Available Columns</h4>
+            <ul>
+                <li *ngFor="let col of allColumns">
+                    <input type="checkbox" [id]="col.name" (click)="toggle(col)" [checked]="isChecked(col)" />
+                    <label [attr.for]="col.name">{{ col.name }}</label>
+                </li>
+            </ul>
+        </div> -->
+
+
+    </div>
+</div>

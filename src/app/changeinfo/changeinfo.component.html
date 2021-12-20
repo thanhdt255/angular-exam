@@ -1,0 +1,58 @@
+<div class="row">
+    <p>Change affililate info</p>
+    <ng-container *ngIf="user != null">
+        <form class="col-3" id="col-3" #useform="ngForm" (submit)="Updateinfo()">
+            <p>Email*</p>
+            <input #email class="form-control" type="text" [(ngModel)]="user.email" name="email">
+            <p>Public name*</p>
+            <input #publicname class="form-control" [(ngModel)]="user.userName" type="text" name="publicname">
+            <p>Legal name</p>
+            <input class="form-control" type="text" name="phonenumber">
+            <p>Phone number*</p>
+            <input #phonenumber [(ngModel)]="user.phone" name="phonenumber" class="form-control" type="text">
+            <h4>Language and Timezone</h4>
+            <p>Language</p>
+            <select name="language" id="" style="width: 100%;">
+                <option value="VN">Viet Nam</option>
+                <option value="USA">USA</option>
+                <option value="China">China</option>
+                <option value="English">English</option>
+            </select>
+            <p>Time zone</p>
+            <select name="timezone" id="" style="width: 100%;">
+                <option value="Timezone">Time Zone</option>
+                <option value="Time">Time</option>
+            </select>
+            <p>Referer: None</p>
+            <input class="form-control btn btn-warning text-white" type="submit" value="UPDATE INFO">
+        </form>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">
+                    <p>Address</p>
+                    <input #address [(ngModel)]="user.address" name="address" class="form-control mb-3" type="text" name="address">
+                    <input class="form-control mb-3" type="text" name="province">
+                    <input class="form-control mb-3" type="text">
+                </div>
+                <div class="col-6">
+                    <input class="form-control mb-3" type="text">
+                    <input #town name="town" class="form-control mb-3" type="text">
+
+                    <select name="country" id="">
+                        <option  value="VN">Viet Nam</option>
+                        <option  value="USA">USA</option>
+                        <option  value="china">China</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <p>Avatar</p>
+            <img #avatar src="" alt="">
+            <input type="file" (change)="Onchangefile($event)" value="Edit">
+            <button class="mt-2" type="button" (click)="Upload">Upload</button>
+
+        </div>
+    </ng-container>
+</div>

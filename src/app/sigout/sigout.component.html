@@ -1,0 +1,62 @@
+<div class="signout">
+    <h1 style="text-align: center;">Sign Up</h1>
+    <form #useform="ngForm" (submit)="onsubmit()">
+        <input class="form-control" #email="ngModel" [(ngModel)]="addperson.email" type="email" required placeholder="Email" name="email" (change)="onvalidemail()">
+        <!-- <p class="text-danger" *ngIf="email?.touched && !validemail && !email?.errors?.required">*Sai định dạng email</p> -->
+        <!-- <p class="text-danger" *ngIf="email?.errors?.required && email?.touched">*Bạn chưa điền email</p> -->
+
+
+        <div class="pass">
+            <input class="form-control" #password #pass="ngModel" [(ngModel)]="addperson.password" type="password" required placeholder="Password" name="password" (change)="onvalidpassword()"><i class="fas fa-eye" (click)="changetype()"></i>
+        </div>
+
+
+        <p class="text-danger" *ngIf="!pass?.errors?.required && pass?.touched && !validpassword">
+            *Mật khẩu dài 8-20 kí tự chứa ít nhất 1 số và 1 kí tự viết hoa các số 0-9 và chữ cái hoa A-Z
+        </p>
+        <p class="text-danger" *ngIf="pass?.errors?.required && pass?.touched ">
+            *Bạn chưa nhập password
+        </p>
+
+        <div class="pass">
+            <input class="form-control pass" #confirmpassword #confirm="ngModel" type="password" [(ngModel)]="addperson.confirm_password" required placeholder="Confirm Password" name="confirmpassword">
+            <i class="fas fa-eye" (click)="changetypeconfirm()"></i>
+        </div>
+        <p class="text-danger" *ngIf="addperson.confirm_password!=addperson.password && useform.controls.confirmpassword?.touched">nhap lai confirmpassword giong voi password</p>
+        <input class="form-control" type="text" required placeholder="Full name(Optional)" name="fullname" (change)="onvalidfullname()">
+        <!--         
+        <p class="text-danger" *ngIf="fullname?.touched&&fullname?.errors?.required">*Bạn chưa nhập tên</p> -->
+        <input class="form-control" #phone="ngModel" [(ngModel)]="addperson.phone" required placeholder="phone number(Optional)" name="phone" (change)="onValidPhoneNumber()">
+        <p class="text-danger" *ngIf="!phone?.errors?.required&&!validPhoneNumber && phone?.touched ">*Nhập lại số điện thoại gồm 10 số </p>
+        <p class="text-danger" *ngIf="phone?.errors?.required&& phone?.touched ">*Bạn chưa nhập sđt </p>
+
+        <input class="form-control" #thanh type="text" placeholder="Referer" name="referer">
+        <input #submit="ngModel" name="submit" [(ngModel)]="model.submit" class="form-control btn btn-warning text-white fe-bold" type="submit" value="SIGN UP">
+        <p style="text-align: center;"> <input [(ngModel)]="checked" #checkbox1="ngModel" name="checkbox" required type="checkbox" value=""><span class="ms-2">I agree to the Terms and Conditions</span></p>
+        <p *ngIf="useform.submitted && checkbox1.invalid">checkbox is required</p>
+
+
+    </form>
+    <p style="text-decoration:solid line-through gray;"></p>
+
+    <div class="divline">
+        <div class="line">
+
+        </div>
+        <div id="label">
+            Or log in with
+        </div>
+        <div class="line">
+
+        </div>
+    </div>
+    <p style="text-align: center;"><img class="rounded-start border border-info border-1 p-1" style="width:37px" src="../../assets/anh2.png" alt="">
+        <a class="text-white btn btn-primary">Sign in with Google</a>
+
+    </p>
+    <p style="text-align: center;">
+        <span>Already have an account ? </span>
+        <a routerLink="/sigin">Login</a>
+    </p>
+
+</div>

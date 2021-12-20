@@ -1,0 +1,19 @@
+<div style="text-align: center;">
+    <p class="border" style="background: gainsboro; border-color: gainsboro;padding: 15px;">
+        <img style="height: 70px;" src="../../assets/logo-burgerprints-AI.svg" alt="">
+    </p>
+    <div style="width: 35%;margin: auto;">
+
+        <p style="margin-top: 30px;font-size: 28px;">Request a Password Reset</p>
+        <p style="font-size: 14px;">Enter the email you used to register</p>
+        <form #userform="ngForm" (submit)="resetpass()">
+            <p>
+                <input #email="ngModel" name="mail" class="p-2 border border-danger rounded" [(ngModel)]="emailuser.email" required style="width: 100%;" type="email" placeholder="Email">
+                <p class="text-danger" *ngIf="email?.errors?.required && email?.touched">Email is required</p>
+
+
+                <p><input class="btn btn-warning text-white" style="width: 100%;" type="submit" value="Send reset email"></p>
+                <p><a routerLink="home">Cancel</a></p>
+        </form>
+    </div>
+</div>

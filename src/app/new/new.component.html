@@ -1,0 +1,35 @@
+<div id="bg">
+    <h4>ADD PRODUCT FEED</h4>
+    <div class="bg-white p-4">
+        <p>Feed name <span class="text-danger">*</span></p>
+        <input style="width: 50%;" class="form-control mb-3" type="text" placeholder="Collection name-Product Feed">
+
+        <p>Create feed by domain<span class="text-danger">*</span></p>
+        <ng-select style="width: 50%;" [items]="Createfeed" placeholder="30usd.com" [multiple]="true" [closeOnSelect]="false" [hideSelected]="true" bindLabel="name" [(ngModel)]="selectedCreatefeed">
+        </ng-select>
+
+
+        <p>
+            Storefront
+        </p>
+        <ng-select style="width: 50%;" [items]="Storefront" [multiple]="true" [closeOnSelect]="false" [hideSelected]="true" bindLabel="name" [(ngModel)]="selectedStorefront">
+        </ng-select>
+
+        <p>
+            Tags
+        </p>
+        <ng-select style="width: 50%;" [items]="Tags" [multiple]="true" [closeOnSelect]="false" [hideSelected]="true" bindLabel="name" [(ngModel)]="selectedTags">
+        </ng-select>
+        <p>Sizes</p>
+        <ng-select style="width: 50%;" [items]="Sizes$ " [multiple]="true" [closeOnSelect]="false" [hideSelected]="true" bindLabel="name" [(ngModel)]="selectedSizes">
+        </ng-select>
+
+        <p>
+            Base
+        </p>
+        <ng-select style="width: 50%;" [items]="Base" [multiple]="true" [closeOnSelect]="false" [hideSelected]="true" bindLabel="name" [(ngModel)]="selectedBase">
+        </ng-select>
+
+        <button style="width: 30%;" type="submit" class="form-control text-white btn btn-warning">SAVE</button>
+    </div>
+</div>

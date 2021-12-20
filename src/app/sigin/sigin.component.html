@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-between">
+    <div>
+        <img style="width: 425px;height: 625px;border-top-right-radius: 10px;" src="../../assets/login-bg.jpg" alt="">
+    </div>
+    <div style="margin-top: 40px;margin-left: auto;margin-right: auto; width: 500px;">
+        <p style="text-align: center;font-weight: bold;font-size: 30px;">Login</p>
+        <p style="font-size: 22px;border: gainsboro;padding-bottom: 5px;" class="d-flex justify-content-around border-bottom">
+            <span>PLATFORM</span>
+            <span> FULFILLMENT</span>
+        </p>
+        <form style="width:100%" #useform="ngForm" (submit)="getlogin()">
+
+            <input class="form-control mt-4" #email="ngModel" type="email" required placeholder="Enter your email" name="email" [(ngModel)]="Personlogin.email">
+
+            <input class="form-control mt-4" #password #pass="ngModel" required type="password" name="password" placeholder="enter your password" [(ngModel)]="Personlogin.password" />
+
+            <input class="form-control bt btn-warning text-white mt-4" type="submit" value="LOGIN FLATFORM">
+            <p class="d-flex justify-content-between mt-4">
+                <span>  <input type="checkbox">
+                <span class="ms-2">Remember me</span></span>
+                <a class="ms-2" routerLink="/misspass" href="">Forgot password</a>
+            </p>
+            <p style="text-align: center;">
+                <a style="width: 30px;height: 50px;" href="../../assets/anh2.png"></a>
+                <a href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?redirect_uri=storagerelay%3A%2F%2Fhttps%2Fprov2.30usd.com%3Fid%3Dauth40301&response_type=permission%20id_token&scope=email%20profile%20openid&openid.realm&include_granted_scopes=true&client_id=631846091749-3qkpuim11mmm5rb87kq7j1r132fc16ir.apps.googleusercontent.com&ss_domain=https%3A%2F%2Fprov2.30usd.com&fetch_basic_profile=true&gsiwebsdk=2&flowName=GeneralOAuthFlow">Sign in with Google</a>
+            </p>
+            <p style="text-align: center;">
+                <span class="me-2" (click)="showSuccess()">I don't have an account?</span>
+                <a routerLink="/sigout" class="text-primary" href="">Sign up now</a>
+
+            </p>
+
+        </form>
+
+    </div>
+</div>
